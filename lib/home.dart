@@ -9,9 +9,9 @@ class Home extends StatelessWidget {
       appBar: AppBar(
         title: Text("DonoAid"),
         actions: [
-          Container(
-            child: Icons.shopping_cart_rounded,
-          )
+          // Container(
+          //   child: ,
+          // )
         ],
       ),
       body: SingleChildScrollView(
