@@ -1,7 +1,10 @@
 // import 'package:donoaid/home.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'auth_frb.dart';
+import 'package:provider/provider.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'sign_up/sign_up_screen.dart';
+import 'routes.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -50,7 +53,11 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(primaryColor: Colors.blue),
-      home: AuthFrb(),
+      initialRoute: SignUpScreen.routeName,
+      routes: routes,
     );
   }
 }
+
+//-------------------------------------------------------------//
+
