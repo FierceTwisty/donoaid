@@ -1,4 +1,5 @@
 // import 'package:donoaid/home.dart';
+import 'package:donoaid/sign_in/sign_in_screen.dart';
 import 'package:donoaid/theme.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -54,7 +55,7 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: theme(),
-      initialRoute: SignUpScreen.routeName,
+      initialRoute: SignInScreen.routeName,
       routes: routes,
     );
   }
