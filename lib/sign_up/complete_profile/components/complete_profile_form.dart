@@ -1,3 +1,4 @@
+import 'package:donoaid/home/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:donoaid/components/custom_surfix_icon.dart';
 import 'package:donoaid/components/default_button.dart';
@@ -52,7 +53,7 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
             text: "continue",
             press: () {
               if (_formKey.currentState!.validate()) {
-                // Navigator.pushNamed(context, OtpScreen.routeName);
+                Navigator.pushNamed(context, HomeScreen.routeName);
               }
             },
           ),

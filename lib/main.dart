@@ -55,7 +55,8 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: theme(),
-      initialRoute: SignInScreen.routeName,
+      initialRoute: SignInScreen.routeName, // use this for staring the app at sign in
+//    initialRoute: HomeScree.routename  // use this to check ur edits in the app
       routes: routes,
     );
   }
