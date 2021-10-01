@@ -2,67 +2,70 @@ import 'package:firebase_auth/firebase_auth.dart';
 // import 'package:firebase_core/firebase_core.dart';
 
 class AuthServ {
-  
   final FirebaseAuth _firebaseAuth;
 
   AuthServ(this._firebaseAuth);
 
-  Stream<User?> get authStateChanges => _firebaseAuth.authStateChanges();
+  // Stream<User?> get authStateChanges => _firebaseAuth.authStateChanges();
 
-  Future<String> signIn(
-      {required String email, required String password}) async {
-    try {
-      await _firebaseAuth.signInWithEmailAndPassword(
-          email: email, password: password);
-      return "Signed IN";
-    } on FirebaseAuthException catch (e) {
-      var msg;
+  Future<String> signIn({String? email, String? password}) async {
+    if (email != null && password != null) {
+      try {
+        await _firebaseAuth.signInWithEmailAndPassword(
+            email: email, password: password);
+        return "Signed IN";
+      } on FirebaseAuthException catch (e) {
+        var msg;
 
-      if (e.code == 'weak-password') {
-        msg = 'The password provided is too weak.';
-        print('The password provided is too weak.');
-      } else if (e.code == 'email-already-in-use') {
-        msg = 'The account already exists for that email.';
-        print('The account already exists for that email.');
+        if (e.code == 'weak-password') {
+          msg = 'The password provided is too weak.';
+          print('The password provided is too weak.');
+        } else if (e.code == 'email-already-in-use') {
+          msg = 'The account already exists for that email.';
+          print('The account already exists for that email.');
+        }
+        if (e.code == 'user-not-found') {
+          msg = 'No user found for that email.';
+          print('No user found for that email.');
+        } else if (e.code == 'wrong-password') {
+          msg = 'Wrong password provided for that user.';
+          print('Wrong password provided for that user.');
+        }
+
+        return msg;
       }
-      if (e.code == 'user-not-found') {
-        msg = 'No user found for that email.';
-        print('No user found for that email.');
-      } else if (e.code == 'wrong-password') {
-        msg = 'Wrong password provided for that user.';
-        print('Wrong password provided for that user.');
-      }
-
-      return msg;
     }
+    throw {print("null shit happened")};
   }
 
-  Future<String> signUp(
-      {required String email, required String password}) async {
-    try {
-      await _firebaseAuth.signInWithEmailAndPassword(
-          email: email, password: password);
-      return "Signed UP";
-    } on FirebaseAuthException catch (e) {
-      var msg;
+  Future<String> signUp({String? email, String? password}) async {
+    if (email != null && password != null) {
+      try {
+        await _firebaseAuth.createUserWithEmailAndPassword(
+            email: email, password: password);
+        return "Signed UP";
+      } on FirebaseAuthException catch (e) {
+        var msg;
 
-      if (e.code == 'weak-password') {
-        msg = 'The Signed UP password provided is too weak.';
-        print(msg);
-      } else if (e.code == 'email-already-in-use') {
-        msg = 'The Signed UP account already exists for that email.';
-        print(msg);
-      }
-      if (e.code == 'user-not-found') {
-        msg = 'No Signed UP user found for that email.';
-        print(msg);
-      } else if (e.code == 'wrong-password') {
-        msg = 'Wrong Signed UP password provided for that user.';
-        print(msg);
-      }
+        if (e.code == 'weak-password') {
+          msg = 'The Signed UP password provided is too weak.';
+          print(msg);
+        } else if (e.code == 'email-already-in-use') {
+          msg = 'The Signed UP account already exists for that email.';
+          print(msg);
+        }
+        if (e.code == 'user-not-found') {
+          msg = 'No Signed UP user found for that email.';
+          print(msg);
+        } else if (e.code == 'wrong-password') {
+          msg = 'Wrong Signed UP password provided for that user.';
+          print(msg);
+        }
 
-      return msg;
+        return msg;
+      }
     }
+    throw {print("null shit signup")};
   }
 }
 // import './auth_form.dart';

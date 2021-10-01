@@ -1,8 +1,9 @@
+import 'package:donoaid/auth_frb.dart';
+import 'package:donoaid/home/home_screen.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:donoaid/components/form_error.dart';
 import 'package:donoaid/helper/keyboard.dart';
-// import 'package:donoaid/screens/forgot_password/forgot_password_screen.dart';
-// import 'package:donoaid/screens/login_success/login_success_screen.dart';
 
 import '../../../components/default_button.dart';
 import '../../../constants.dart';
@@ -69,17 +70,20 @@ class _SignFormState extends State<SignForm> {
           ),
           FormError(errors: errors),
           SizedBox(height: getProportionateScreenHeight(20)),
-          // DefaultButton(
-          //   text: "Continue",
-          //   press: () {
-          //     if (_formKey.currentState!.validate()) {
-          //       _formKey.currentState!.save();
-          //       // if all are valid then go to success screen
-          //       KeyboardUtil.hideKeyboard(context);
-          //       Navigator.pushNamed(context, LoginSuccessScreen.routeName);
-          //     }
-          //   },
-          // ),
+          DefaultButton(
+            text: "Continue",
+            press: () async {
+              if (_formKey.currentState!.validate()) {
+                _formKey.currentState!.save();
+                String nxt = await AuthServ(FirebaseAuth.instance)
+                    .signIn(email: email, password: password);
+                if (nxt == "Signed IN") {
+                  KeyboardUtil.hideKeyboard(context);
+                  Navigator.pushNamed(context, HomeScreen.routeName);
+                }
+              }
+            },
+          ),
         ],
       ),
     );

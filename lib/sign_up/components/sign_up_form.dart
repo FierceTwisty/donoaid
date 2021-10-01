@@ -1,5 +1,6 @@
+import 'package:donoaid/auth_frb.dart';
 import 'package:flutter/material.dart';
-import 'package:donoaid/components/custom_surfix_icon.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:donoaid/components/default_button.dart';
 import 'package:donoaid/components/form_error.dart';
 import '../complete_profile/complete_profile_screen.dart';
@@ -49,11 +50,14 @@ class _SignUpFormState extends State<SignUpForm> {
           SizedBox(height: getProportionateScreenHeight(40)),
           DefaultButton(
             text: "Continue",
-            press: () {
+            press: () async {
               if (_formKey.currentState!.validate()) {
                 _formKey.currentState!.save();
-                // if all are valid then go to success screen
-                Navigator.pushNamed(context, CompleteProfileScreen.routeName);
+                String nxt = await AuthServ(FirebaseAuth.instance)
+                    .signUp(email: email, password: password);
+                if (nxt == "Signed UP") {
+                  Navigator.pushNamed(context, CompleteProfileScreen.routeName);
+                }
               }
             },
           ),
