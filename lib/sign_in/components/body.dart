@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:donoaid/components/no_account_text.dart';
-import 'package:donoaid/components/socal_card.dart';
+// import 'package:donoaid/components/socal_card.dart';
 import '../../../size_config.dart';
 import 'signin_form.dart';
 

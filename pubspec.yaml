@@ -34,6 +34,8 @@ dependencies:
   provider: ^6.0.1
   flutter_svg: ^0.22.0
 
+  
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -49,6 +51,23 @@ flutter:
   # the material Icons class.
   uses-material-design: true
 
+  assets: 
+    - assets/ACME-logo.png
+    - assets/AKANKHA.jpg
+    - assets/1.jpeg
+    - assets/2.jpeg
+    - assets/3.jpeg
+    - assets/4.jpeg
+    - assets/5.jpeg
+    - assets/6.jpeg
+    - assets/7.jpeg
+    - assets/8.jpeg
+    - assets/9.jpeg
+    - assets/10.jpeg
+    - assets/11.jpeg
+    - assets/12.jpeg
+    - assets/13.jpeg
+  
   # To add assets to your application, add an assets section, like this:
   # assets:
   #   - images/a_dot_burr.jpeg

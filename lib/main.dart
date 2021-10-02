@@ -1,5 +1,6 @@
 // import 'package:donoaid/home.dart';
 import 'package:donoaid/sign_in/sign_in_screen.dart';
+import 'package:donoaid/home/home_screen.dart';
 import 'package:donoaid/theme.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -54,9 +55,9 @@ class _MyAppState extends State<MyApp> {
       return MaterialApp(
         debugShowCheckedModeBanner: false,
         theme: theme(),
-        initialRoute:
-            SignInScreen.routeName, // use this for staring the app at sign in
-//    initialRoute: HomeScree.routename  // use this to check ur edits in the app
+        // initialRoute:
+            // SignInScreen.routeName, // use this for staring the app at sign in
+        initialRoute: HomeScreen.routeName,  // use this to check ur edits in the app
         routes: routes,
       );
     }

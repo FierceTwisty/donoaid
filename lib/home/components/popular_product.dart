@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../components/product_card.dart';
+import 'package:donoaid/components/product_card.dart';
 import 'package:donoaid/models/Product.dart';
 
 import '../../../size_config.dart';
@@ -13,7 +13,7 @@ class PopularProducts extends StatelessWidget {
         Padding(
           padding:
               EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(20)),
-          child: SectionTitle(title: "Popular Products", press: () {}),
+          child: SectionTitle(title: "Popular Charities", press: () {}),
         ),
         SizedBox(height: getProportionateScreenWidth(20)),
         SingleChildScrollView(

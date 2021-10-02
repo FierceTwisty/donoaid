@@ -43,12 +43,13 @@ class ProductDescription extends StatelessWidget {
                 bottomLeft: Radius.circular(20),
               ),
             ),
-            child: SvgPicture.asset(
-              "assets/icons/Heart Icon_2.svg",
-              color:
-                  product.isFavourite ? Color(0xFFFF4848) : Color(0xFFDBDEE4),
-              height: getProportionateScreenWidth(16),
-            ),
+            child: Icon(Icons.favorite, color: Color(0xFFFF4848),)
+            // SvgPicture.asset(
+            //   "assets/icons/Heart Icon_2.svg",
+            //   color:
+            //       product.isFavourite ? Color(0xFFFF4848) : Color(0xFFDBDEE4),
+            //   height: getProportionateScreenWidth(16),
+            // ),
           ),
         ),
 

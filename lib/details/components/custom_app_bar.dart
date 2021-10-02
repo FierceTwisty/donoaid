@@ -25,20 +25,24 @@ class CustomAppBar extends StatelessWidget {
               height: getProportionateScreenWidth(40),
               width: getProportionateScreenWidth(40),
               child: TextButton(
-                style: TextButton.styleFrom(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(60),
+                  style: TextButton.styleFrom(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(60),
+                    ),
+                    primary: kPrimaryColor,
+                    backgroundColor: Colors.white,
+                    padding: EdgeInsets.zero,
                   ),
-                  primary: kPrimaryColor,
-                  backgroundColor: Colors.white,
-                  padding: EdgeInsets.zero,
-                ),
-                onPressed: () => Navigator.pop(context),
-                child: SvgPicture.asset(
-                  "assets/icons/Back ICon.svg", // change to Icon check how to implement icons
-                  height: 15,
-                ),
-              ),
+                  onPressed: () => Navigator.pop(context),
+                  child: Icon(
+                    Icons.arrow_back_ios_new,
+                    size: 15,
+                  )
+                  // SvgPicture.asset(
+                  //   "assets/icons/Back ICon.svg", // change to Icon check how to implement icons
+                  //   height: 15,
+                  // ),
+                  ),
             ),
             Spacer(),
             Container(
@@ -57,7 +61,9 @@ class CustomAppBar extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(width: 5),
-                  SvgPicture.asset("assets/icons/Star Icon.svg"),// change to Icon check how to implement icons
+                  Icon(Icons.star)
+                  // SvgPicture.asset(
+                  //     "assets/icons/Star Icon.svg"), // change to Icon check how to implement icons
                 ],
               ),
             )
