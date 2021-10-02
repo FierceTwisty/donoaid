@@ -6,7 +6,7 @@ class AuthServ {
 
   AuthServ(this._firebaseAuth);
 
-  // Stream<User?> get authStateChanges => _firebaseAuth.authStateChanges();
+  Stream<User?> get authStateChanges => _firebaseAuth.authStateChanges();
 
   Future<String> signIn({String? email, String? password}) async {
     if (email != null && password != null) {
