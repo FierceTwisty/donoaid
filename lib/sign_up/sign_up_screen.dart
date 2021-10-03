@@ -1,6 +1,6 @@
 import 'package:donoaid/size_config.dart';
 import 'package:flutter/material.dart';
-import 'package:donoaid/theme.dart';
+// import 'package:donoaid/theme.dart';
 import 'components/body.dart';
 
 class SignUpScreen extends StatelessWidget {

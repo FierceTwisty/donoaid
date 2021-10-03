@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:shop_app/models/Product.dart';
+import 'package:donoaid/models/Product.dart';
 
 import '../../../constants.dart';
 
 class ItemCard extends StatelessWidget {
-  final Product product;
-  final Function press;
+  final Product? product;
+  final Function? press;
   const ItemCard({
-    Key key,
+    Key? key,
     this.product,
     this.press,
   }) : super(key: key);
@@ -15,7 +15,7 @@ class ItemCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: press,
+      // onTap: press,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
@@ -27,12 +27,12 @@ class ItemCard extends StatelessWidget {
               // height: 180,
               // width: 160,
               decoration: BoxDecoration(
-                color: product.color,
+                // color: product.color,
                 borderRadius: BorderRadius.circular(16),
               ),
               child: Hero(
-                tag: "${product.id}",
-                child: Image.asset(product.image),
+                tag: "${product?.id}",
+                child: Image.asset(product!.images[0]),
               ),
             ),
           ),
@@ -40,14 +40,11 @@ class ItemCard extends StatelessWidget {
             padding: const EdgeInsets.symmetric(vertical: kDefaultPaddin / 4),
             child: Text(
               // products is out demo list
-              product.title,
-              style: TextStyle(color: kTextLightColor),
+              product!.title,
+              // style: TextStyle(color: kTextLightColor),
             ),
           ),
-          Text(
-            "\$${product.price}",
-            style: TextStyle(fontWeight: FontWeight.bold),
-          )
+         
         ],
       ),
     );
