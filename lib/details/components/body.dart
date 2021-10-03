@@ -3,7 +3,7 @@ import 'package:donoaid/components/default_button.dart';
 import 'package:donoaid/models/Product.dart';
 import 'package:donoaid/size_config.dart';
 
-import 'color_dots.dart';
+import 'counter.dart';
 import 'product_description.dart';
 import 'top_rounded_container.dart';
 import 'product_images.dart';
