@@ -69,6 +69,7 @@
 import 'package:donoaid/firebase/auth_frb.dart';
 import 'package:donoaid/home/home_screen.dart';
 import 'package:donoaid/sign_in/sign_in_screen.dart';
+import 'package:donoaid/details/details_screen.dart';
 import 'package:donoaid/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -133,7 +134,8 @@ class _MyAppState extends State<MyApp> {
       return MaterialApp(
         debugShowCheckedModeBanner: false,
         theme: theme(),
-        initialRoute: xyz, // use this for starting the app at sign in or up
+        initialRoute: DetailsScreen.routeName, //for aryan to test
+        // initialRoute: xyz, // use this for starting the app at sign in or up
         // initialRoute: HomeScreen.routeName,  // use this to check ur edits in the app
         routes: routes,
       );
