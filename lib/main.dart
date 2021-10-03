@@ -134,8 +134,9 @@ class _MyAppState extends State<MyApp> {
       return MaterialApp(
         debugShowCheckedModeBanner: false,
         theme: theme(),
-        initialRoute: DetailsScreen.routeName, //for aryan to test
+        // initialRoute: DetailsScreen.routeName, //for aryan to test
         // initialRoute: xyz, // use this for starting the app at sign in or up
+        initialRoute: SignInScreen.routeName,
         // initialRoute: HomeScreen.routeName,  // use this to check ur edits in the app
         routes: routes,
       );

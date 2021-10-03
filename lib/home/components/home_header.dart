@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 //import 'package:donoaid/screens/cart/cart_screen.dart';
 
 import '../../../size_config.dart';
-import 'icon_btn_with_counter.dart';
-import 'search_field.dart';
+// import 'icon_btn_with_counter.dart';
 
 class HomeHeader extends StatelessWidget {
   const HomeHeader({
@@ -19,6 +18,11 @@ class HomeHeader extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           //SearchField(),
+          IconButton(
+            onPressed: () {},
+            icon: Icon(Icons.person),
+          ),
+
           IconButton(
             onPressed: () {},
             icon: Icon(Icons.shopping_cart),

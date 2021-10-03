@@ -16,31 +16,56 @@ class SpecialOffers extends StatelessWidget {
           padding:
               EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(20)),
           child: SectionTitle(
-            title: "Special Needs",
+            title: "Categories",
             press: () {},
           ),
         ),
         SizedBox(height: getProportionateScreenWidth(20)),
-        SingleChildScrollView(
-          scrollDirection: Axis.horizontal,
-          child: Row(
-            children: [
-              SpecialOfferCard(
-                image: "assets/AKANKHA.jpg",
-                category: "AKANKSHA",
-                numOfBrands: 1,
-                press: () {},
-              ),
-              SpecialOfferCard(
-                image: "assets/ACME-logo.png",
-                category: "ACMEC",
-                numOfBrands: 1,
-                press: () {},
-              ),
-              SizedBox(width: getProportionateScreenWidth(20)),
-            ],
-          ),
+        // SingleChildScrollView(
+        //   scrollDirection: Axis.horizontal,
+        //   child:
+        Container(
+          // color: Colors.red,
+          height: getProportionateScreenWidth(200),
+          width: getProportionateScreenWidth(double.infinity),
+          child:
+              GridView.count(
+                  scrollDirection: Axis.horizontal,
+                  crossAxisCount: 2,
+                  childAspectRatio: (1/1.85),
+                  crossAxisSpacing: 3,
+                  mainAxisSpacing: 3,
+                  children: [
+                SpecialOfferCard(
+                  category: "Food",
+                  image: "assets/5.jpeg",
+                  press: () {},
+                ),
+                SpecialOfferCard(
+                  category: "Money",
+                  image: "assets/8.jpeg",
+                  press: () {
+                    print("Money");
+                  },
+                ),
+                SpecialOfferCard(
+                  category: "Clothes",
+                  image: "assets/3.jpeg",
+                  press: () {},
+                ),
+                SpecialOfferCard(
+                  category: "Electronics",
+                  image: "assets/6.jpeg",
+                  press: () {},
+                ),
+              ]
+                  // List.generate(
+                  //   categories.length,
+                  //   (index) => categories[index],
+                  // ),
+                  ),
         ),
+        // ),
       ],
     );
   }
@@ -51,12 +76,12 @@ class SpecialOfferCard extends StatelessWidget {
     Key? key,
     required this.category,
     required this.image,
-    required this.numOfBrands,
+    // required this.numOfBrands,
     required this.press,
   }) : super(key: key);
 
   final String category, image;
-  final int numOfBrands;
+  // final int numOfBrands;
   final GestureTapCallback press;
 
   @override
@@ -66,8 +91,8 @@ class SpecialOfferCard extends StatelessWidget {
       child: GestureDetector(
         onTap: press,
         child: SizedBox(
-          width: getProportionateScreenWidth(242),
-          height: getProportionateScreenWidth(100),
+          // width: getProportionateScreenWidth(500),
+          // height: getProportionateScreenWidth(100),
           child: ClipRRect(
             borderRadius: BorderRadius.circular(20),
             child: Stack(
@@ -75,6 +100,7 @@ class SpecialOfferCard extends StatelessWidget {
                 Image.asset(
                   image,
                   fit: BoxFit.cover,
+                  alignment: Alignment.center,
                 ),
                 Container(
                   decoration: BoxDecoration(
@@ -104,7 +130,7 @@ class SpecialOfferCard extends StatelessWidget {
                             fontWeight: FontWeight.bold,
                           ),
                         ),
-                        TextSpan(text: "$numOfBrands Brands")
+                        // TextSpan(text: "$numOfBrands Brands")
                       ],
                     ),
                   ),

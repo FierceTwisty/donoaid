@@ -27,7 +27,10 @@ List<Product> demoProducts = [
   Product(
     id: 1,
     images: [
-      "assets/1.jpeg",
+      "assets/10.jpeg",
+      "assets/10.jpeg",
+      "assets/10.jpeg",
+      "assets/10.jpeg",
     ],
     colors: [
       Color(0xFFF6625E),
@@ -35,7 +38,7 @@ List<Product> demoProducts = [
       Color(0xFFDECB9C),
       Colors.white,
     ],
-    title: "Donation™",
+    title: "AnnaMitra",
     price: 64.99,
     description: description,
     rating: 4.8,
@@ -45,7 +48,10 @@ List<Product> demoProducts = [
   Product(
     id: 2,
     images: [
-      "assets/2.jpeg",
+      "assets/AKANKHA.jpg",
+      "assets/AKANKHA.jpg",
+      "assets/AKANKHA.jpg",
+      "assets/AKANKHA.jpg",
     ],
     colors: [
       Color(0xFFF6625E),
@@ -53,7 +59,7 @@ List<Product> demoProducts = [
       Color(0xFFDECB9C),
       Colors.white,
     ],
-    title: "Nike Sport White - Man Pant",
+    title: "Akankha",
     price: 50.5,
     description: description,
     rating: 4.1,
@@ -62,7 +68,10 @@ List<Product> demoProducts = [
   Product(
     id: 3,
     images: [
-      "assets/3.jpeg",
+      "assets/ACME-logo.png",
+      "assets/ACME-logo.png",
+      "assets/ACME-logo.png",
+      "assets/ACME-logo.png",
     ],
     colors: [
       Color(0xFFF6625E),
@@ -70,7 +79,7 @@ List<Product> demoProducts = [
       Color(0xFFDECB9C),
       Colors.white,
     ],
-    title: "Gloves XC Omega - Polygon",
+    title: "ACME",
     price: 36.55,
     description: description,
     rating: 4.1,
@@ -80,7 +89,10 @@ List<Product> demoProducts = [
   Product(
     id: 4,
     images: [
-      "assets/4.jpeg",
+      "assets/11.jpeg",
+      "assets/11.jpeg",
+      "assets/11.jpeg",
+      "assets/11.jpeg",
     ],
     colors: [
       Color(0xFFF6625E),
@@ -88,7 +100,7 @@ List<Product> demoProducts = [
       Color(0xFFDECB9C),
       Colors.white,
     ],
-    title: "Logitech Head",
+    title: "Navjyoti",
     price: 20.20,
     description: description,
     rating: 4.1,
