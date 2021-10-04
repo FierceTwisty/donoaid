@@ -1,4 +1,7 @@
+import 'package:donoaid/firebase/auth_frb.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import 'profile_menu.dart';
 import 'profile_pic.dart';
@@ -10,32 +13,34 @@ class Body extends StatelessWidget {
       padding: EdgeInsets.symmetric(vertical: 20),
       child: Column(
         children: [
-          ProfilePic(),
+          // ProfilePic(),
           SizedBox(height: 20),
           ProfileMenu(
             text: "My Account",
-            icon: "assets/icons/User Icon.svg",
+            icon: Icons.person,
             press: () => {},
           ),
           ProfileMenu(
             text: "Notifications",
-            icon: "assets/icons/Bell.svg",
+            icon: Icons.notifications,
             press: () {},
           ),
           ProfileMenu(
             text: "Settings",
-            icon: "assets/icons/Settings.svg",
+            icon: Icons.settings,
             press: () {},
           ),
           ProfileMenu(
             text: "Help Center",
-            icon: "assets/icons/Question mark.svg",
+            icon: Icons.help,
             press: () {},
           ),
           ProfileMenu(
             text: "Log Out",
-            icon: "assets/icons/Log out.svg",
-            press: () {},
+            icon: Icons.logout,
+            press: () {
+              context.read<AuthServ>().signOut();
+            },
           ),
         ],
       ),

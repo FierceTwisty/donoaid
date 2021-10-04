@@ -4,8 +4,8 @@ class Product {
   final int id;
   final String title, description;
   final List<String> images;
- // final List<Color> colors;
-   final double rating;//, price;
+  // final List<Color> colors;
+  final double rating; //, price;
   final bool isFavourite, isPopular;
 
   Product({
@@ -27,51 +27,41 @@ List<Product> demoProducts = [
   Product(
     id: 1,
     images: [
-      "assets/1.jpeg",
+      "assets/rotibank.jpg",
+      "assets/rotibank.jpg",
+      "assets/rotibank.jpg",
+      "assets/rotibank.jpg",
     ],
-    // colors: [
-    //   Color(0xFFF6625E),
-    //   Color(0xFF836DB8),
-    //   Color(0xFFDECB9C),
-    //   Colors.white,
-    // ],
-    title: "Donation",
-    // price: 64.99,
-    description: description,
-    //rating: 4.8,
+
+    title: "Roti Bank",
+    description: description_rotiBank,
+    // rating: 4.8,
     isFavourite: true,
     isPopular: true,
   ),
   Product(
+    title: "Feeding India",
     id: 2,
     images: [
-      "assets/2.jpeg",
+      "assets/feeding india.jpg",
+      "assets/feeding india.jpg",
+      "assets/feeding india.jpg",
+      "assets/feeding india.jpg",
     ],
-    // colors: [
-    //   Color(0xFFF6625E),
-    //   Color(0xFF836DB8),
-    //   Color(0xFFDECB9C),
-    //   Colors.white,
-    // ],
-    title: "Donation",
-    // price: 50.5,
-    description: description,
-    // rating: 4.1,
+    description: description_feedingIndia,
+    isFavourite: true,
     isPopular: true,
   ),
   Product(
     id: 3,
     images: [
-      "assets/3.jpeg",
+      "assets/22.png",
+      "assets/22.png",
+      "assets/22.png",
+      "assets/22.png",
     ],
-    // colors: [
-    //   Color(0xFFF6625E),
-    //   Color(0xFF836DB8),
-    //   Color(0xFFDECB9C),
-    //   Colors.white,
-    // ],
-    title: "Donation",
-    // price: 36.55,
+
+    title: "ACME",
     description: description,
     // rating: 4.1,
     isFavourite: true,
@@ -80,123 +70,180 @@ List<Product> demoProducts = [
   Product(
     id: 4,
     images: [
-      "assets/4.jpeg",
+      "assets/smilefoundation.jpeg",
+      "assets/smilefoundation.jpeg",
+      "assets/smilefoundation.jpeg",
+      "assets/smilefoundation.jpeg",
     ],
-    // colors: [
-    //   Color(0xFFF6625E),
-    //   Color(0xFF836DB8),
-    //   Color(0xFFDECB9C),
-    //   Colors.white,
-    // ],
-    title: "Donation",
-    // price: 20.20,
-    description: description,
+
+    title: "Smile Foundation",
+    description: description_smile,
     // rating: 4.1,
     isFavourite: true,
   ),
 ];
 
-List<Product> food = [
+List<Product> demoFood = [
   Product(
     id: 1,
     images: [
-      "assets/rotibank.jpg"
+      "assets/rotibank.jpg",
+      "assets/rotibank.jpg",
+      "assets/rotibank.jpg",
+      "assets/rotibank.jpg",
     ],
-    title: "Mumbai Roti Bank by Dabbawalas",
-    description: description_rotiBank,
-    // isFavourite: true
-    // isPopular: true
-  ),
 
+    title: "RotiBank",
+    description: description_rotiBank,
+    // rating: 4.8,
+    isFavourite: true,
+    isPopular: true,
+  ),
   Product(
+    title: "Feeding India",
     id: 2,
     images: [
-      "assets/feedingindia.jpg"
+      "assets/feeding india.jpg",
+      "assets/feeding india.jpg",
+      "assets/feeding india.jpg",
+      "assets/feeding india.jpg",
     ],
-    title: "Feeding India",
     description: description_feedingIndia,
-    // isFavourite: true
-    // isPopular: true
   ),
-
   Product(
     id: 3,
     images: [
-      "assets/akshayapatra.jpg"
+      "assets/smilefoundation.jpg",
+      "assets/smilefoundation.jpg",
+      "assets/smilefoundation.jpg",
+      "assets/smilefoundation.jpg",
     ],
-    title: "Akshaya Patra Foundation",
-    description: description_akshayaPatra,
-    // isFavourite: true
-    // isPopular: true
-  ),
 
+    title: "Smile foundation",
+    description: description_smile,
+    // rating: 4.1,
+    isFavourite: true,
+    isPopular: true,
+  ),
+  Product(
+    id: 4,
+    images: [
+      "assets/14.png",
+      "assets/14.png",
+      "assets/14.png",
+      "assets/14.png",
+    ],
+
+    title: "Akshaya Patra",
+    description: description_akshayaPatra,
+    // rating: 4.1,
+    isFavourite: true,
+  ),
+];
+
+List<Product> demoMoney = [
+  Product(
+    id: 1,
+    images: [
+      "assets/smilefoundation.jpg",
+      "assets/smilefoundation.jpg",
+      "assets/smilefoundation.jpg",
+      "assets/smilefoundation.jpg",
+    ],
+
+    title: "Smile Foundation",
+    description: description_smile,
+    // rating: 4.8,
+    isFavourite: true,
+    isPopular: true,
+  ),
+  Product(
+    title: "Care India",
+    id: 2,
+    images: [
+      "assets/careindia.jpg",
+      "assets/careindia.jpg",
+      "assets/careindia.jpg",
+      "assets/careindia.jpg",
+    ],
+    description: description_careIndia,
+  ),
 ];
 
 List<Product> money = [
   Product(
-    id: 1,
+    id: 8,
     images: [
-      "assets/smile.jpg"
+      "assets/smilefoundation.jpg",
+      "assets/smilefoundation.jpg",
+      "assets/smilefoundation.jpg",
+      "assets/smilefoundation.jpg",
     ],
     title: "Smile Foundation",
     description: description_smile,
     // isFavourite: true
     // isPopular: true
   ),
-
   Product(
-    id: 2,
+    id: 9,
     images: [
-      "assets/careindia.jpg"
+      "assets/careindia.jpg",
+      "assets/careindia.jpg",
+      "assets/careindia.jpg",
+      "assets/careindia.jpg",
     ],
     title: "Care India",
     description: description_careIndia,
     // isFavourite: true
     // isPopular: true
   ),
-
 ];
 
 List<Product> clothes = [
   Product(
-    id: 1,
+    id: 10,
     images: [
-      "assets/greenyatra.jpg"
+      "assets/greenyatra.jpg",
+      "assets/greenyatra.jpg",
+      "assets/greenyatra.jpg",
+      "assets/greenyatra.jpg",
     ],
     title: "Green Yatra",
     description: description_greenYatra,
     // isFavourite: true
     // isPopular: true
   ),
-
   Product(
-    id: 2,
+    id: 11,
     images: [
-      "assets/goonj.jpg"
+      "assets/goonj.jpg",
+      "assets/goonj.jpg",
+      "assets/goonj.jpg",
+      "assets/goonj.jpg",
     ],
     title: "Goonj",
     description: description_goonj,
     // isFavourite: true
     // isPopular: true
   ),
-
 ];
 
 List<Product> electronics = [
   Product(
-    id: 1,
+    id: 12,
     images: [
-      "assets/dreamgirl.jpg"
+      "assets/dreamgirl-foundation.jpg",
+      "assets/dreamgirl-foundation.jpg",
+      "assets/dreamgirl-foundation.jpg",
+      "assets/dreamgirl-foundation.jpg",
     ],
     title: "Dream Girl Foundation",
     description: description_dreamGirl,
     // isFavourite: true
     // isPopular: true
   ),
-
 ];
-const String description =
-    "********Description*******";
+const String description = "********Description*******";
 const String description_rotiBank =
     "Mumbai Roti bank is a non-profit, food rescue organisation initiated by roti foundation Mumbai that bridges the gap between hinger and excess food.";
 const String description_feedingIndia =
