@@ -1,4 +1,5 @@
 import 'package:donoaid/firebase/auth_frb.dart';
+import 'package:donoaid/sign_in/sign_in_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -38,8 +39,9 @@ class Body extends StatelessWidget {
           ProfileMenu(
             text: "Log Out",
             icon: Icons.logout,
-            press: () {
+            press: () async {
               FirebaseAuth.instance.signOut();
+              Navigator.pop(context, SignInScreen.routeName);
             },
           ),
         ],

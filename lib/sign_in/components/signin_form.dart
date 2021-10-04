@@ -57,7 +57,7 @@ class _SignFormState extends State<SignForm> {
                 },
               ),
               // Text("Remember me"),
-              Spacer(),
+              // Spacer(),
               // GestureDetector(
               //   onTap: () => Navigator.pushNamed(
               //       context, ForgotPasswordScreen.routeName),
