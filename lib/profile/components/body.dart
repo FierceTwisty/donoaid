@@ -40,7 +40,7 @@ class Body extends StatelessWidget {
             text: "Log Out",
             icon: Icons.logout,
             press: () async {
-              FirebaseAuth.instance.signOut();
+              await FirebaseAuth.instance.signOut();
               Navigator.pop(context, SignInScreen.routeName);
             },
           ),
