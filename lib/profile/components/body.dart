@@ -39,7 +39,7 @@ class Body extends StatelessWidget {
             text: "Log Out",
             icon: Icons.logout,
             press: () {
-              context.read<AuthServ>().signOut();
+              FirebaseAuth.instance.signOut();
             },
           ),
         ],
