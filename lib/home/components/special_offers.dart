@@ -1,3 +1,4 @@
+import 'package:donoaid/ProdList/productlist.dart';
 import 'package:flutter/material.dart';
 
 import '../../../size_config.dart';
@@ -28,42 +29,67 @@ class SpecialOffers extends StatelessWidget {
           // color: Colors.red,
           height: getProportionateScreenWidth(200),
           width: getProportionateScreenWidth(double.infinity),
-          child:
-              GridView.count(
-                  scrollDirection: Axis.horizontal,
-                  crossAxisCount: 2,
-                  childAspectRatio: (1/1.85),
-                  crossAxisSpacing: 3,
-                  mainAxisSpacing: 3,
-                  children: [
+          child: GridView.count(
+              scrollDirection: Axis.horizontal,
+              crossAxisCount: 2,
+              childAspectRatio: (1 / 1.85),
+              crossAxisSpacing: 3,
+              mainAxisSpacing: 3,
+              children: [
                 SpecialOfferCard(
                   category: "Food",
                   image: "assets/5.jpeg",
-                  press: () {},
+                  press: () {
+                    Navigator.pushNamed(
+                      context,
+                      ProductList.routeName,
+                    );
+                    // arguments: ProductList(
+                    //   category: "Food",
+                    // ));
+                  },
                 ),
                 SpecialOfferCard(
                   category: "Money",
                   image: "assets/8.jpeg",
                   press: () {
-                    print("Money");
+                    Navigator.pushNamed(
+                      context,
+                      ProductList.routeName,
+                      // arguments: ProductList(
+                      //   category: "Money",
+                      // ),
+                    );
                   },
                 ),
                 SpecialOfferCard(
                   category: "Clothes",
                   image: "assets/3.jpeg",
-                  press: () {},
+                  press: () {
+                    Navigator.pushNamed(
+                      context,
+                      ProductList.routeName,
+                      arguments: DeterCategory(category: "Food"),
+                    );
+                  },
                 ),
                 SpecialOfferCard(
                   category: "Electronics",
                   image: "assets/6.jpeg",
-                  press: () {},
+                  press: () {
+                    Navigator.pushNamed(
+                      context,
+                      ProductList.routeName,
+                      arguments: DeterCategory(category: "Food"),
+                    );
+                  },
                 ),
               ]
-                  // List.generate(
-                  //   categories.length,
-                  //   (index) => categories[index],
-                  // ),
-                  ),
+              // List.generate(
+              //   categories.length,
+              //   (index) => categories[index],
+              // ),
+              ),
         ),
         // ),
       ],

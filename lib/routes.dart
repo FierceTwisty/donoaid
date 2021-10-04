@@ -1,6 +1,8 @@
 // import 'dart:js';
 
+import 'package:donoaid/ProdList/productlist.dart';
 import 'package:donoaid/home/home_screen.dart';
+import 'package:donoaid/profile/profile_screen.dart';
 import 'package:donoaid/sign_in/sign_in_screen.dart';
 import 'package:donoaid/sign_up/complete_profile/complete_profile_screen.dart';
 import 'package:flutter/widgets.dart';
@@ -15,8 +17,8 @@ final Map<String, WidgetBuilder> routes = {
   SignInScreen.routeName: (context) => SignInScreen(),
   HomeScreen.routeName: (context) => HomeScreen(),
   DetailsScreen.routeName: (context) => DetailsScreen(),
-  // CartScreen.routeName: (context) => CartScreen(),
-  // ProfileScreen.routeName: (context) => ProfileScreen(),
+  ProductList.routeName: (context) => ProductList(),
+  ProfileScreen.routeName: (context) => ProfileScreen(),
 };
 
 

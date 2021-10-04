@@ -1,3 +1,4 @@
+import 'package:donoaid/profile/profile_screen.dart';
 import 'package:flutter/material.dart';
 //import 'package:donoaid/screens/cart/cart_screen.dart';
 
@@ -19,7 +20,12 @@ class HomeHeader extends StatelessWidget {
         children: [
           //SearchField(),
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.pushNamed(
+                context,
+                ProfileScreen.routeName,
+              );
+            },
             icon: Icon(Icons.person),
           ),
 
