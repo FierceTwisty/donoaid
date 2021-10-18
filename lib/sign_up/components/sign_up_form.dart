@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:donoaid/components/default_button.dart';
 import 'package:donoaid/components/form_error.dart';
+import 'package:provider/provider.dart';
 import '../complete_profile/complete_profile_screen.dart';
 
 import '../../../constants.dart';
@@ -37,6 +38,7 @@ class _SignUpFormState extends State<SignUpForm> {
 
   @override
   Widget build(BuildContext context) {
+    final authService = Provider.of<AuthServ>(context);
     return Form(
       key: _formKey,
       child: Column(
@@ -53,11 +55,9 @@ class _SignUpFormState extends State<SignUpForm> {
             press: () async {
               if (_formKey.currentState!.validate()) {
                 _formKey.currentState!.save();
-                String nxt = await AuthServ(FirebaseAuth.instance)
-                    .signUp(email: email, password: password);
-                if (nxt == "Signed UP") {
-                  Navigator.pushNamed(context, CompleteProfileScreen.routeName);
-                }
+                await authService.signUp(email, password);
+                Navigator.pushNamed(context, CompleteProfileScreen.routeName);
+                
               }
             },
           ),

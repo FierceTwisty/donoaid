@@ -1,9 +1,11 @@
 import 'package:donoaid/firebase/auth_frb.dart';
 import 'package:donoaid/home/home_screen.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+// import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:donoaid/components/form_error.dart';
 import 'package:donoaid/helper/keyboard.dart';
+// import 'package:donoaid/main.dart';
+import 'package:provider/provider.dart';
 
 import '../../../components/default_button.dart';
 import '../../../constants.dart';
@@ -37,6 +39,8 @@ class _SignFormState extends State<SignForm> {
 
   @override
   Widget build(BuildContext context) {
+    final authService = Provider.of<AuthServ>(context);
+
     return Form(
       key: _formKey,
       child: Column(
@@ -45,29 +49,6 @@ class _SignFormState extends State<SignForm> {
           SizedBox(height: getProportionateScreenHeight(30)),
           buildPasswordFormField(),
           SizedBox(height: getProportionateScreenHeight(30)),
-          Row(
-            children: [
-              // Checkbox(
-              //   value: remember,
-              //   activeColor: kPrimaryColor,
-              //   onChanged: (value) {
-              //     setState(() {
-              //       remember = value;
-              //     });
-              //   },
-              // ),
-              // Text("Remember me"),
-              Spacer(),
-              // GestureDetector(
-              //   onTap: () => Navigator.pushNamed(
-              //       context, ForgotPasswordScreen.routeName),
-              //   child: Text(
-              //     "Forgot Password",
-              //     style: TextStyle(decoration: TextDecoration.underline),
-              //   ),
-              // )
-            ],
-          ),
           FormError(errors: errors),
           SizedBox(height: getProportionateScreenHeight(20)),
           DefaultButton(
@@ -75,12 +56,10 @@ class _SignFormState extends State<SignForm> {
             press: () async {
               if (_formKey.currentState!.validate()) {
                 _formKey.currentState!.save();
-                String nxt = await AuthServ(FirebaseAuth.instance)
-                    .signIn(email: email, password: password);
-                if (nxt == "Signed IN") {
-                  KeyboardUtil.hideKeyboard(context);
-                  Navigator.pushNamed(context, HomeScreen.routeName);
+                if (email != null && password != null) {
+                  authService.signIn(email, password);
                 }
+     
               }
             },
           ),

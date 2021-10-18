@@ -5,6 +5,7 @@ import '../../../size_config.dart';
 import 'signin_form.dart';
 
 class Body extends StatelessWidget {
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -35,18 +36,18 @@ class Body extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                  //   SocalCard(
-                  //     // icon: "assets/icons/google-icon.svg",
-                  //     press: () {},
-                  //   ),
-                  //   SocalCard(
-                  //     // icon: "assets/icons/facebook-2.svg",
-                  //     press: () {},
-                  //   ),
-                  //   SocalCard(
-                  //     // icon: "assets/icons/twitter.svg",
-                  //     press: () {},
-                  //   ),
+                    //   SocalCard(
+                    //     // icon: "assets/icons/google-icon.svg",
+                    //     press: () {},
+                    //   ),
+                    //   SocalCard(
+                    //     // icon: "assets/icons/facebook-2.svg",
+                    //     press: () {},
+                    //   ),
+                    //   SocalCard(
+                    //     // icon: "assets/icons/twitter.svg",
+                    //     press: () {},
+                    //   ),
                   ],
                 ),
                 SizedBox(height: getProportionateScreenHeight(20)),
