@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 import '../../../size_config.dart';
 
-class DiscountBanner extends StatelessWidget {
-  const DiscountBanner({
+class HelpLine extends StatelessWidget {
+  const HelpLine({
     Key? key,
   }) : super(key: key);
 

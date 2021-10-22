@@ -1,5 +1,6 @@
 import 'package:donoaid/ProdList/productlist.dart';
 import 'package:donoaid/home/home_screen.dart';
+import 'package:donoaid/profile/components/donation_screen.dart';
 import 'package:donoaid/profile/profile_screen.dart';
 import 'package:donoaid/sign_in/sign_in_screen.dart';
 import 'package:donoaid/sign_up/complete_profile/complete_profile_screen.dart';
@@ -21,6 +22,7 @@ final Map<String, WidgetBuilder> routes = {
   DetailsScreen.routeName: (context) => DetailsScreen(),
   ProductList.routeName: (context) => ProductList(),
   ProfileScreen.routeName: (context) => ProfileScreen(),
+  DonationScreen.routeName: (context) => DonationScreen(),
 };
 
 class AuthWrap extends StatelessWidget {
@@ -47,37 +49,3 @@ class AuthWrap extends StatelessWidget {
         });
   }
 }
-
-// class RouteGenerator {
-//   static Route<dynamic>? generateRoute(RouteSettings settings) {
-//     final args = settings.arguments;
-
-//     switch (settings.name) {
-//       case "/sign_up":
-//         return MaterialPageRoute(builder: (_) => SignUpScreen());
-//       default:
-//     }
-//   }
-// }
-
-
-
-// // import 'dart:js';
-//
-// import 'package:donoaid/home/home_screen.dart';
-// import 'package:donoaid/sign_in/sign_in_screen.dart';
-// import 'package:donoaid/sign_up/complete_profile/complete_profile_screen.dart';
-// import 'package:flutter/widgets.dart';
-// import './sign_up/sign_up_screen.dart';
-//
-// // We use name route
-// // All our routes will be available here
-// final Map<String, WidgetBuilder> routes = {
-//   SignUpScreen.routeName: (context) => SignUpScreen(),
-//   CompleteProfileScreen.routeName: (context) => CompleteProfileScreen(),
-//   SignInScreen.routeName: (context) => SignInScreen(),
-//   HomeScreen.routeName: (context) => HomeScreen(),
-//   // DetailsScreen.routeName: (context) => DetailsScreen(),
-//   // CartScreen.routeName: (context) => CartScreen(),
-//   // ProfileScreen.routeName: (context) => ProfileScreen(),
-// };

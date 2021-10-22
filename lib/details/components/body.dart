@@ -3,7 +3,6 @@ import 'package:donoaid/components/default_button.dart';
 import 'package:donoaid/models/Product.dart';
 import 'package:donoaid/size_config.dart';
 
-import 'counter.dart';
 import 'product_description.dart';
 import 'top_rounded_container.dart';
 import 'product_images.dart';
@@ -24,7 +23,6 @@ class Body extends StatelessWidget {
             children: [
               ProductDescription(
                 product: product,
-                pressOnSeeMore: () {},
               ),
               TopRoundedContainer(
                 color: Colors.white,
@@ -36,7 +34,7 @@ class Body extends StatelessWidget {
                     top: getProportionateScreenWidth(15),
                   ),
                   child: DefaultButton(
-                    text: "Add To Cart",
+                    text: "Donate",
                     press: () {},
                   ),
                 ),

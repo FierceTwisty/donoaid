@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 // import 'package:flutter_svg/svg.dart';
 import 'package:donoaid/constants.dart';
 import 'package:donoaid/ProdList/components/body.dart';
@@ -12,13 +13,18 @@ class ProductList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // final DeterCategory args =
-    //     ModalRoute.of(context)!.settings.arguments as DeterCategory;
+    final DeterCategory args =
+        ModalRoute.of(context)!.settings.arguments as DeterCategory;
+
+    // Widget getprod() async {
+    //   await prodTry(args.category);
+
+    //   return Body();
+    // }
+
     return Scaffold(
       appBar: buildAppBar(),
-      body: Body(
-          // prodCat: category,
-          ),
+      body: Body(category: args.category),
     );
   }
 
@@ -30,42 +36,23 @@ class ProductList extends StatelessWidget {
         Center(
           child: Text(
             "Charities",
-            style: TextStyle(color: Colors.black, fontSize: 18),
+            style: TextStyle(
+              color: Colors.black,
+              fontSize: 18,
+            ),
           ),
         ),
         SizedBox(
-          width: 85,
+          width: 150,
         ),
-        IconButton(
-          icon: Icon(Icons.shopping_cart),
-          // By default our  icon color is white
-          color: kTextColor,
-          onPressed: () {},
-        ),
-        SizedBox(width: kDefaultPaddin / 2)
+
       ],
     );
   }
 }
 
 class DeterCategory {
-  final String? category;
+  final String category;
 
   DeterCategory({required this.category});
-
-  List<Product> prods = demoProducts;
-
-  List<Product> whtProd() {
-    if (category == "Food") {
-      prods = demoFood;
-    } else if (category == "Money") {
-      prods = demoMoney;
-    }
-    //  else if (category == "Electronic") {
-    //   prods = electronics;
-    // } else if (category == "Clothes") {
-    //   prods = clothes;
-    // }
-    return prods;
-  }
 }

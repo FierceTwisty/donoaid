@@ -1,9 +1,7 @@
 import 'package:donoaid/profile/profile_screen.dart';
 import 'package:flutter/material.dart';
-//import 'package:donoaid/screens/cart/cart_screen.dart';
 
 import '../../../size_config.dart';
-// import 'icon_btn_with_counter.dart';
 
 class HomeHeader extends StatelessWidget {
   const HomeHeader({
@@ -18,7 +16,6 @@ class HomeHeader extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          //SearchField(),
           IconButton(
             onPressed: () {
               Navigator.pushNamed(
@@ -29,16 +26,6 @@ class HomeHeader extends StatelessWidget {
             icon: Icon(Icons.person),
           ),
 
-          IconButton(
-            onPressed: () {},
-            icon: Icon(Icons.shopping_cart),
-          )
-          // IconButton(onPressed: () {}, icon: )
-          // IconBtnWithCounter(
-          //   svgSrc: "assets/icons/Bell.svg",
-          //   numOfitem: 3,
-          //   press: () {},
-          // ),
         ],
       ),
     );

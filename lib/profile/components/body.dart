@@ -1,4 +1,5 @@
 import 'package:donoaid/firebase/auth_frb.dart';
+import 'package:donoaid/profile/components/donation_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../../constants.dart';
@@ -35,13 +36,38 @@ class Body extends StatelessWidget {
                     color: kPrimaryColor,
                     size: 22,
                   ),
-                  // SvgPicture.asset(
-                  //   icon,
-                  //   color: kPrimaryColor,
-                  //   width: 22,
-                  // ),
+    
                   SizedBox(width: 20),
                   Expanded(child: Text("Logout")),
+                  Icon(Icons.arrow_forward_ios),
+                ],
+              ),
+            ),
+          ),
+
+          SizedBox(height: 20),
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+            child: TextButton(
+              style: TextButton.styleFrom(
+                primary: Color(0xFF29B6F6),
+                padding: EdgeInsets.all(20),
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(15)),
+                backgroundColor: Color(0xFFF5F6F9),
+              ),
+              onPressed: () {
+                Navigator.pushNamed(context, DonationScreen.routeName);
+              },
+              child: Row(
+                children: [
+                  Icon(
+                    Icons.shopping_cart,
+                    color: kPrimaryColor,
+                    size: 22,
+                  ),
+                  SizedBox(width: 20),
+                  Expanded(child: Text("Donations")),
                   Icon(Icons.arrow_forward_ios),
                 ],
               ),

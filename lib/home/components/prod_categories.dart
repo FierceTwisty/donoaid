@@ -2,10 +2,9 @@ import 'package:donoaid/ProdList/productlist.dart';
 import 'package:flutter/material.dart';
 
 import '../../../size_config.dart';
-import 'section_title.dart';
 
-class SpecialOffers extends StatelessWidget {
-  const SpecialOffers({
+class ProdCategories extends StatelessWidget {
+  const ProdCategories({
     Key? key,
   }) : super(key: key);
 
@@ -16,82 +15,60 @@ class SpecialOffers extends StatelessWidget {
         Padding(
           padding:
               EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(20)),
-          child: SectionTitle(
-            title: "Categories",
-            press: () {},
+          child: Text(
+            "Categories",
+            style: TextStyle(fontSize: 20, color: Colors.black87),
           ),
         ),
         SizedBox(height: getProportionateScreenWidth(20)),
-        // SingleChildScrollView(
-        //   scrollDirection: Axis.horizontal,
-        //   child:
         Container(
-          // color: Colors.red,
           height: getProportionateScreenWidth(200),
           width: getProportionateScreenWidth(double.infinity),
           child: GridView.count(
-              scrollDirection: Axis.horizontal,
-              crossAxisCount: 2,
-              childAspectRatio: (1 / 1.85),
-              crossAxisSpacing: 3,
-              mainAxisSpacing: 3,
-              children: [
-                SpecialOfferCard(
-                  category: "Food",
-                  image: "assets/5.jpeg",
-                  press: () {
-                    Navigator.pushNamed(
-                      context,
-                      ProductList.routeName,
-                    );
-                    // arguments: ProductList(
-                    //   category: "Food",
-                    // ));
-                  },
-                ),
-                SpecialOfferCard(
-                  category: "Money",
-                  image: "assets/8.jpeg",
-                  press: () {
-                    Navigator.pushNamed(
-                      context,
-                      ProductList.routeName,
-                      // arguments: ProductList(
-                      //   category: "Money",
-                      // ),
-                    );
-                  },
-                ),
-                SpecialOfferCard(
-                  category: "Clothes",
-                  image: "assets/3.jpeg",
-                  press: () {
-                    Navigator.pushNamed(
-                      context,
-                      ProductList.routeName,
-                      arguments: DeterCategory(category: "Food"),
-                    );
-                  },
-                ),
-                SpecialOfferCard(
-                  category: "Electronics",
-                  image: "assets/6.jpeg",
-                  press: () {
-                    Navigator.pushNamed(
-                      context,
-                      ProductList.routeName,
-                      arguments: DeterCategory(category: "Food"),
-                    );
-                  },
-                ),
-              ]
-              // List.generate(
-              //   categories.length,
-              //   (index) => categories[index],
-              // ),
+            scrollDirection: Axis.horizontal,
+            crossAxisCount: 2,
+            childAspectRatio: (1 / 1.85),
+            crossAxisSpacing: 5,
+            mainAxisSpacing: 3,
+            children: [
+              SpecialOfferCard(
+                category: "Food",
+                image: "assets/5.jpeg",
+                press: () {
+                  Navigator.pushNamed(context, ProductList.routeName,
+                      arguments: DeterCategory(category: "Food"));
+                },
               ),
+              SpecialOfferCard(
+                category: "Money",
+                image: "assets/8.jpeg",
+                press: () {
+                  Navigator.pushNamed(context, ProductList.routeName,
+                      arguments: DeterCategory(category: "Money"));
+                },
+              ),
+              SpecialOfferCard(
+                category: "Clothes",
+                image: "assets/3.jpeg",
+                press: () {
+                  Navigator.pushNamed(context, ProductList.routeName,
+                      arguments: DeterCategory(category: "Clothes"));
+                },
+              ),
+              SpecialOfferCard(
+                category: "Electronics",
+                image: "assets/6.jpeg",
+                press: () {
+                  Navigator.pushNamed(
+                    context,
+                    ProductList.routeName,
+                    arguments: DeterCategory(category: "Electronics"),
+                  );
+                },
+              ),
+            ],
+          ),
         ),
-        // ),
       ],
     );
   }
@@ -102,12 +79,10 @@ class SpecialOfferCard extends StatelessWidget {
     Key? key,
     required this.category,
     required this.image,
-    // required this.numOfBrands,
     required this.press,
   }) : super(key: key);
 
   final String category, image;
-  // final int numOfBrands;
   final GestureTapCallback press;
 
   @override
@@ -117,8 +92,6 @@ class SpecialOfferCard extends StatelessWidget {
       child: GestureDetector(
         onTap: press,
         child: SizedBox(
-          // width: getProportionateScreenWidth(500),
-          // height: getProportionateScreenWidth(100),
           child: ClipRRect(
             borderRadius: BorderRadius.circular(20),
             child: Stack(
@@ -156,7 +129,6 @@ class SpecialOfferCard extends StatelessWidget {
                             fontWeight: FontWeight.bold,
                           ),
                         ),
-                        // TextSpan(text: "$numOfBrands Brands")
                       ],
                     ),
                   ),
