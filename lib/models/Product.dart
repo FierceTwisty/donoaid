@@ -3,6 +3,7 @@
 // import 'dart:convert';
 
 class Product {
+  final String category;
   final int id;
   final String title, description;
   final String images;
@@ -17,6 +18,7 @@ class Product {
     this.isFavourite = false,
     this.isPopular = false,
     required this.title,
+    required this.category,
     // this.price,
     required this.description,
   });

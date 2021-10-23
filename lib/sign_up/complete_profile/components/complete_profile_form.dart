@@ -1,8 +1,10 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:donoaid/home/home_screen.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:donoaid/components/custom_surfix_icon.dart';
 import 'package:donoaid/components/default_button.dart';
 import 'package:donoaid/components/form_error.dart';
+import 'package:donoaid/firebase/auth_frb.dart';
 
 import '../../../constants.dart';
 import '../../../size_config.dart';
@@ -36,6 +38,8 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
 
   @override
   Widget build(BuildContext context) {
+    CollectionReference users = FirebaseFirestore.instance.collection('Users');
+    // final authService = Provider.of<AuthServ>(context);
     return Form(
       key: _formKey,
       child: Column(
@@ -51,9 +55,19 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
           SizedBox(height: getProportionateScreenHeight(40)),
           DefaultButton(
             text: "continue",
-            press: () {
+            press: () async {
+              // final authService = Provider.of<AuthServ>(context, listen: false);
               if (_formKey.currentState!.validate()) {
-                Navigator.pushNamed(context, HomeScreen.routeName);
+                final upl = FirebaseAuth.instance.currentUser;
+                _formKey.currentState!.save();
+                  users.doc(upl?.uid).set({
+                    'name': "${firstName} ${lastName}",
+                    'address': address,
+                    'phone': phoneNumber,
+                  }).then(
+                    (value) =>
+                        Navigator.pushNamed(context, HomeScreen.routeName),
+                  );
               }
             },
           ),

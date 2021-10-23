@@ -1,4 +1,6 @@
 import 'package:donoaid/ProdList/productlist.dart';
+import 'package:donoaid/donate_proof/dontate_proof_screen.dart';
+import 'package:donoaid/donate_proof/order_success.dart';
 import 'package:donoaid/home/home_screen.dart';
 import 'package:donoaid/profile/components/donation_screen.dart';
 import 'package:donoaid/profile/profile_screen.dart';
@@ -23,6 +25,8 @@ final Map<String, WidgetBuilder> routes = {
   ProductList.routeName: (context) => ProductList(),
   ProfileScreen.routeName: (context) => ProfileScreen(),
   DonationScreen.routeName: (context) => DonationScreen(),
+  DonateProofScreen.routeName: (context) => DonateProofScreen(),
+  OrderSuccess.routeName: (context) => OrderSuccess()
 };
 
 class AuthWrap extends StatelessWidget {

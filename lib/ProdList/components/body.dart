@@ -48,6 +48,7 @@ class Body extends StatelessWidget {
           ),
           itemBuilder: (context, index) => ProductCard(
             product: Product(
+              category: category,
               id: index,
               title: data.docs[index]['title'],
               description: data.docs[index]['description'],

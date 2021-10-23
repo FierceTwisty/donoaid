@@ -5,6 +5,8 @@ import 'package:donoaid/size_config.dart';
 import 'complete_profile_form.dart';
 
 class Body extends StatelessWidget {
+  // final String uid;
+  // Body({required this.uid});
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -23,9 +25,7 @@ class Body extends StatelessWidget {
                   textAlign: TextAlign.center,
                 ),
                 SizedBox(height: SizeConfig.screenHeight * 0.06),
-                
                 CompleteProfileForm(),
-                
                 SizedBox(height: getProportionateScreenHeight(30)),
                 Text(
                   "By continuing your confirm that you agree \nwith our Term and Condition",

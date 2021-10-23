@@ -1,6 +1,7 @@
 import 'package:donoaid/firebase/user_model.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/services.dart';
 
 class AuthServ {
   final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
@@ -62,6 +63,8 @@ class AuthServ {
         }
 
         return msg;
+      } on PlatformException catch (e) {
+        print("user already exists");
       }
     }
     throw {

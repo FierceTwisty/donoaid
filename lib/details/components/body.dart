@@ -1,3 +1,4 @@
+import 'package:donoaid/donate_proof/dontate_proof_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:donoaid/components/default_button.dart';
 import 'package:donoaid/models/Product.dart';
@@ -35,7 +36,9 @@ class Body extends StatelessWidget {
                   ),
                   child: DefaultButton(
                     text: "Donate",
-                    press: () {},
+                    press: () {
+                      Navigator.pushNamed(context, DonateProofScreen.routeName, arguments: DonateCate(category: product.category));
+                    },
                   ),
                 ),
               ),

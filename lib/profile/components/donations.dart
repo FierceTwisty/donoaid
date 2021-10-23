@@ -1,70 +1,43 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:donoaid/constants.dart';
 
 class Donations extends StatelessWidget {
   const Donations({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      padding: EdgeInsets.symmetric(vertical: 20),
-      child: Column(
-        children: [
-          //order box
-          SizedBox(height: 20),
-          Padding(
-            padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-            child: Column(
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    SizedBox(width: 20),
-                    Expanded(
-                      child: Text(
-                        "Food",
-                        style:
-                            TextStyle(fontSize: 19, color: Color(0xFF29B6F6)),
-                      ),
-                    ),
-                    Expanded(
-                      child: Text(
-                        "Qty: 1kg",
-                        style:
-                            TextStyle(fontSize: 15, color: Color(0xFF29B6F6)),
-                      ),
-                    ),
-                    SizedBox(width: 20),
-                  ],
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    SizedBox(width: 20),
-                    Expanded(
-                      child: Text(
-                        "vQcpYlgELWTpa4XLJSU2",
-                        style:
-                            TextStyle(fontSize: 19, color: Color(0xFF29B6F6)),
-                      ),
-                    ),
-                    Expanded(
-                      child: Text(
-                        "22/10/2021",
-                        style: TextStyle(
-                          color: Color(0xFF29B6F6),
-                        ),
-                      ),
-                    ),
-                    SizedBox(width: 20),
-                  ],
-                )
-              ],
-            ),
+    return StreamBuilder<QuerySnapshot>(
+      stream: FirebaseFirestore.instance
+          .collection("Users")
+          .doc(FirebaseAuth.instance.currentUser?.uid)
+          .collection('Orders')
+          .snapshots(),
+      builder: (context, AsyncSnapshot<QuerySnapshot> snapshot) {
+        if (snapshot.hasError) {
+          return Text("Something Went Wrong");
+        }
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return Center(
+            child: CircularProgressIndicator(),
+          );
+        }
+        if (!snapshot.hasData) {
+          return Text("No Charities Left");
+        }
+        final data = snapshot.requireData;
+
+        return GridView.builder(
+          padding: const EdgeInsets.symmetric(horizontal: kDefaultPaddin),
+          itemCount: data.size,
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 2,
+            mainAxisSpacing: kDefaultPaddin,
+            crossAxisSpacing: kDefaultPaddin,
+            childAspectRatio: 0.75,
           ),
-
-          //order box
-
-          Container(
+          itemBuilder: (context, index) => Container(
             decoration: BoxDecoration(
               color: Color(
                 0xFFF5F6F9,
@@ -73,54 +46,21 @@ class Donations extends StatelessWidget {
             padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
             child: Column(
               children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    SizedBox(width: 20),
-                    Expanded(
-                      child: Text(
-                        "Money",
-                        style:
-                            TextStyle(fontSize: 19, color: Color(0xFF29B6F6)),
-                      ),
-                    ),
-                    Expanded(
-                      child: Text(
-                        "Amt: 1000",
-                        style:
-                            TextStyle(fontSize: 15, color: Color(0xFF29B6F6)),
-                      ),
-                    ),
-                    SizedBox(width: 20),
-                  ],
+                SizedBox(width: 20),
+                Expanded(
+                  child: Text(
+                    data.docs[index]['category'],
+                    style: TextStyle(fontSize: 19, color: Color(0xFF29B6F6)),
+                  ),
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    SizedBox(width: 20),
-                    Expanded(
-                      child: Text(
-                        "SivYq7oO1ZcUbzSkPhZE",
-                        style:
-                            TextStyle(fontSize: 19, color: Color(0xFF29B6F6)),
-                      ),
-                    ),
-                    Expanded(
-                      child: Text(
-                        "19/10/2021",
-                        style: TextStyle(
-                          color: Color(0xFF29B6F6),
-                        ),
-                      ),
-                    ),
-                    SizedBox(width: 20),
-                  ],
-                )
+                Container(
+                  child: Image.network(data.docs[index]['image']),
+                ),
               ],
             ),
           ),
-        ],
-      ),
+        );
+      },
     );
   }
 }

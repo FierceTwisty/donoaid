@@ -1,7 +1,6 @@
 import 'package:donoaid/models/Product.dart';
 import 'package:flutter/material.dart';
 import 'package:donoaid/components/product_card.dart';
-
 import '../../../size_config.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
@@ -47,6 +46,7 @@ class PopularProducts extends StatelessWidget {
                         if (data.docs[index]["isPop"]) {
                           return ProductCard(
                             product: Product(
+                              category: 'Food',
                               id: index,
                               images: data.docs[index]["images"],
                               title: data.docs[index]["title"],
