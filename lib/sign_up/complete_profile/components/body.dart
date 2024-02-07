@@ -5,6 +5,8 @@ import 'package:donoaid/size_config.dart';
 import 'complete_profile_form.dart';
 
 class Body extends StatelessWidget {
+  // final String uid;
+  // Body({required this.uid});
   @override
   Widget build(BuildContext context) {
     return SafeArea(

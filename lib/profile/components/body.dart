@@ -1,41 +1,77 @@
+import 'package:donoaid/firebase/auth_frb.dart';
+import 'package:donoaid/profile/components/donation_screen.dart';
 import 'package:flutter/material.dart';
-
-import 'profile_menu.dart';
-import 'profile_pic.dart';
+import 'package:provider/provider.dart';
+import '../../../constants.dart';
 
 class Body extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final authService = Provider.of<AuthServ>(context);
     return SingleChildScrollView(
       padding: EdgeInsets.symmetric(vertical: 20),
       child: Column(
         children: [
-          ProfilePic(),
+          // ProfilePic(),
           SizedBox(height: 20),
-          ProfileMenu(
-            text: "My Account",
-            icon: "assets/icons/User Icon.svg",
-            press: () => {},
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+            child: TextButton(
+              style: TextButton.styleFrom(
+                primary: Color(0xFF29B6F6),
+                padding: EdgeInsets.all(20),
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(15)),
+                backgroundColor: Color(0xFFF5F6F9),
+              ),
+              onPressed: () async {
+                await authService.signOut();
+                Navigator.pushNamedAndRemoveUntil(
+                    context, '/', (route) => false);
+              },
+              child: Row(
+                children: [
+                  Icon(
+                    Icons.logout,
+                    color: kPrimaryColor,
+                    size: 22,
+                  ),
+    
+                  SizedBox(width: 20),
+                  Expanded(child: Text("Logout")),
+                  Icon(Icons.arrow_forward_ios),
+                ],
+              ),
+            ),
           ),
-          ProfileMenu(
-            text: "Notifications",
-            icon: "assets/icons/Bell.svg",
-            press: () {},
-          ),
-          ProfileMenu(
-            text: "Settings",
-            icon: "assets/icons/Settings.svg",
-            press: () {},
-          ),
-          ProfileMenu(
-            text: "Help Center",
-            icon: "assets/icons/Question mark.svg",
-            press: () {},
-          ),
-          ProfileMenu(
-            text: "Log Out",
-            icon: "assets/icons/Log out.svg",
-            press: () {},
+
+          SizedBox(height: 20),
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+            child: TextButton(
+              style: TextButton.styleFrom(
+                primary: Color(0xFF29B6F6),
+                padding: EdgeInsets.all(20),
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(15)),
+                backgroundColor: Color(0xFFF5F6F9),
+              ),
+              onPressed: () {
+                Navigator.pushNamed(context, DonationScreen.routeName);
+              },
+              child: Row(
+                children: [
+                  Icon(
+                    Icons.shopping_cart,
+                    color: kPrimaryColor,
+                    size: 22,
+                  ),
+                  SizedBox(width: 20),
+                  Expanded(child: Text("Donations")),
+                  Icon(Icons.arrow_forward_ios),
+                ],
+              ),
+            ),
           ),
         ],
       ),

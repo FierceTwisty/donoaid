@@ -1,6 +1,6 @@
 import 'package:donoaid/size_config.dart';
 import 'package:flutter/material.dart';
-import 'package:donoaid/theme.dart';
+// import 'package:donoaid/theme.dart';
 import 'components/body.dart';
 
 class SignUpScreen extends StatelessWidget {
@@ -10,7 +10,10 @@ class SignUpScreen extends StatelessWidget {
     SizeConfig().init(context);
     return Scaffold(
       appBar: AppBar(
-        title: Center(child:Text("Sign Up"),),
+        title: Text(
+          "Sign Up",
+          textAlign: TextAlign.center,
+        ),
       ),
       body: Body(),
     );

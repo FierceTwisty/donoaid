@@ -1,9 +1,9 @@
+import 'package:donoaid/donate_proof/dontate_proof_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:donoaid/components/default_button.dart';
 import 'package:donoaid/models/Product.dart';
 import 'package:donoaid/size_config.dart';
 
-import 'color_dots.dart';
 import 'product_description.dart';
 import 'top_rounded_container.dart';
 import 'product_images.dart';
@@ -24,29 +24,22 @@ class Body extends StatelessWidget {
             children: [
               ProductDescription(
                 product: product,
-                pressOnSeeMore: () {},
               ),
               TopRoundedContainer(
-                color: Color(0xFFF6F7F9),
-                child: Column(
-                  children: [
-                    Counter(product: product), //remove
-                    TopRoundedContainer(
-                      color: Colors.white,
-                      child: Padding(
-                        padding: EdgeInsets.only(
-                          left: SizeConfig.screenWidth * 0.15,
-                          right: SizeConfig.screenWidth * 0.15,
-                          bottom: getProportionateScreenWidth(40),
-                          top: getProportionateScreenWidth(15),
-                        ),
-                        child: DefaultButton(
-                          text: "Add To Cart",
-                          press: () {},
-                        ),
-                      ),
-                    ),
-                  ],
+                color: Colors.white,
+                child: Padding(
+                  padding: EdgeInsets.only(
+                    left: SizeConfig.screenWidth * 0.15,
+                    right: SizeConfig.screenWidth * 0.15,
+                    bottom: getProportionateScreenWidth(40),
+                    top: getProportionateScreenWidth(15),
+                  ),
+                  child: DefaultButton(
+                    text: "Donate",
+                    press: () {
+                      Navigator.pushNamed(context, DonateProofScreen.routeName, arguments: DonateCate(category: product.category));
+                    },
+                  ),
                 ),
               ),
             ],

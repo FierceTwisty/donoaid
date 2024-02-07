@@ -1,19 +1,56 @@
+import 'package:donoaid/firebase/user_model.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-// import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/services.dart';
 
 class AuthServ {
-  final FirebaseAuth _firebaseAuth;
+  final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
 
-  AuthServ(this._firebaseAuth);
+  UserMod? _userMap(User? user) {
+    if (user == null) {
+      return null;
+    }
+    return UserMod(user.uid, user.email);
+  }
 
-  Stream<User?> get authStateChanges => _firebaseAuth.authStateChanges();
+  Stream<UserMod?>? get user {
+    return _firebaseAuth.authStateChanges().map(_userMap);
+  }
 
-  Future<String> signIn({String? email, String? password}) async {
+  Future<UserMod?> signIn(String? email, String? password) async {
     if (email != null && password != null) {
       try {
-        await _firebaseAuth.signInWithEmailAndPassword(
+        final creds = await _firebaseAuth.signInWithEmailAndPassword(
             email: email, password: password);
-        return "Signed IN";
+        return _userMap(creds.user);
+      } on FirebaseAuthException catch (e) {
+        var msg;
+
+        if (e.code == 'user-not-found') {
+          msg = 'No user found for that email.';
+          print('No user found for that email.');
+        } else if (e.code == 'wrong-password') {
+          msg = 'Wrong password provided for that user.';
+          print('Wrong password provided for that user.');
+        }
+
+        return msg;
+      } catch (err) {
+        print(err.toString());
+      }
+    }
+    throw {
+      print("signin shit happened"),
+    };
+  }
+
+  Future<UserMod?> signUp(String? email, String? password) async {
+    if (email != null && password != null) {
+      try {
+        final creds = await _firebaseAuth.createUserWithEmailAndPassword(
+            email: email, password: password);
+
+        return _userMap(creds.user);
       } on FirebaseAuthException catch (e) {
         var msg;
 
@@ -24,49 +61,98 @@ class AuthServ {
           msg = 'The account already exists for that email.';
           print('The account already exists for that email.');
         }
-        if (e.code == 'user-not-found') {
-          msg = 'No user found for that email.';
-          print('No user found for that email.');
-        } else if (e.code == 'wrong-password') {
-          msg = 'Wrong password provided for that user.';
-          print('Wrong password provided for that user.');
-        }
 
         return msg;
+      } on PlatformException catch (e) {
+        print("user already exists");
       }
     }
-    throw {print("null shit happened")};
+    throw {
+      print("signup shit happened"),
+    };
   }
 
-  Future<String> signUp({String? email, String? password}) async {
-    if (email != null && password != null) {
-      try {
-        await _firebaseAuth.createUserWithEmailAndPassword(
-            email: email, password: password);
-        return "Signed UP";
-      } on FirebaseAuthException catch (e) {
-        var msg;
-
-        if (e.code == 'weak-password') {
-          msg = 'The Signed UP password provided is too weak.';
-          print(msg);
-        } else if (e.code == 'email-already-in-use') {
-          msg = 'The Signed UP account already exists for that email.';
-          print(msg);
-        }
-        if (e.code == 'user-not-found') {
-          msg = 'No Signed UP user found for that email.';
-          print(msg);
-        } else if (e.code == 'wrong-password') {
-          msg = 'Wrong Signed UP password provided for that user.';
-          print(msg);
-        }
-
-        return msg;
-      }
-    }
-    throw {print("null shit signup")};
+  Future<void> signOut() async {
+    return await _firebaseAuth.signOut();
   }
+
+  // User? user(User? usr) {
+  //   if (usr == null) {
+  //     return null;
+  //   }
+
+  //   return (usr);
+
+  //   // return UserMod(user.)
+  // }
+
+  // AuthServ(this._firebaseAuth);
+
+  // Stream<User?> get authStateChanges => _firebaseAuth.authStateChanges();
+
+  // Future<void> signOut() async {
+  //   await _firebaseAuth.signOut();
+  // }
+
+  // Future<UserMod?> signIn({String email, String? password}) async {
+  //   if (email != null && password != null) {
+  //     try {
+  //       await _firebaseAuth.signInWithEmailAndPassword(
+  //           email: email, password: password);
+  //       // return "Signed IN";
+  //     } on FirebaseAuthException catch (e) {
+  //       var msg;
+
+  //       if (e.code == 'weak-password') {
+  //         msg = 'The password provided is too weak.';
+  //         print('The password provided is too weak.');
+  //       } else if (e.code == 'email-already-in-use') {
+  //         msg = 'The account already exists for that email.';
+  //         print('The account already exists for that email.');
+  //       }
+  //       if (e.code == 'user-not-found') {
+  //         msg = 'No user found for that email.';
+  //         print('No user found for that email.');
+  //       } else if (e.code == 'wrong-password') {
+  //         msg = 'Wrong password provided for that user.';
+  //         print('Wrong password provided for that user.');
+  //       }
+
+  //       return msg;
+  //     }
+  //   }
+  //   throw {print("null shit happened")};
+  // }
+
+  // Future<String> signUp({String? email, String? password}) async {
+  //   if (email != null && password != null) {
+  //     try {
+  //       await _firebaseAuth.createUserWithEmailAndPassword(
+  //           email: email, password: password);
+  //       return "Signed UP";
+  //     } on FirebaseAuthException catch (e) {
+  //       var msg;
+
+  //       if (e.code == 'weak-password') {
+  //         msg = 'The Signed UP password provided is too weak.';
+  //         print(msg);
+  //       } else if (e.code == 'email-already-in-use') {
+  //         msg = 'The Signed UP account already exists for that email.';
+  //         print(msg);
+  //       }
+  //       if (e.code == 'user-not-found') {
+  //         msg = 'No Signed UP user found for that email.';
+  //         print(msg);
+  //       } else if (e.code == 'wrong-password') {
+  //         msg = 'Wrong Signed UP password provided for that user.';
+  //         print(msg);
+  //       }
+
+  //       return msg;
+  //     }
+  //   }
+  //   throw {print("null shit signup")};
+  // }
 }
 // import './auth_form.dart';
 

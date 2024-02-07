@@ -31,8 +31,11 @@ dependencies:
 
   firebase_core: ^1.6.0
   firebase_auth: ^3.1.1
+  firebase_storage: "^10.0.5"
   provider: ^6.0.1
-  flutter_svg: ^0.22.0
+  cloud_firestore: "^2.5.3"
+  image_picker: ^0.8.4
+  file_picker: ^4.0.3
 
   
 
@@ -52,8 +55,7 @@ flutter:
   uses-material-design: true
 
   assets: 
-    - assets/ACME-logo.png
-    - assets/AKANKHA.jpg
+
     - assets/1.jpeg
     - assets/2.jpeg
     - assets/3.jpeg
@@ -67,6 +69,20 @@ flutter:
     - assets/11.jpeg
     - assets/12.jpeg
     - assets/13.jpeg
+    - assets/14.png
+    - assets/22.png
+    - assets/23.jpg
+    - assets/careindia.jpg
+    - assets/dreamgirl-foundation.jpg
+    - assets/feeding india.jpg
+    - assets/goonj.jpg
+    - assets/greenyatra.jpg
+    - assets/rotibank.jpg
+    - assets/smilefoundation.jpg
+
+
+
+
   
   # To add assets to your application, add an assets section, like this:
   # assets:
